@@ -1,0 +1,19 @@
+{
+  "name": "gdsc-itb-backend-and-database",
+  "version": "1.0.0",
+  "description": "Tugas GDSC ITB Backend & Database - Kelompok 36",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicholas-Sidharta12365/GDSC-ITB-Backend-and-Database.git"
+  },
+  "author": "Kelompok 36",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicholas-Sidharta12365/GDSC-ITB-Backend-and-Database/issues"
+  },
+  "homepage": "https://github.com/Nicholas-Sidharta12365/GDSC-ITB-Backend-and-Database#readme"
+}
