@@ -1,12 +1,15 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import './App.css';
-import logo from './components/img/logo_black.png'
+import './components/styles/Login.css'
+import './components/styles/Register.css'
+import logo from './components/img/elogo.png'
 
 function App() {
   const [wishlist, setWishlist] = useState([]);
   const [overview, setOverview] = useState([]);
   const [page, setPage] = useState('movies');
-
   const [movies] = useState (
     [
       {
@@ -169,14 +172,15 @@ function App() {
             <a href="#" onClick={() => navigateTo('wishlist')} className="wishlist">Wishlist</a>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <a href="#" onClick={() => navigateTo('login')}>Login</a>
           </li>
           <li>
-            <a href="#">TV-Series</a>
+            <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
         <div class="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
+          <i class="fas fa-search"></i>
         </div>
       </nav>
       <div className="movies-heading">
@@ -192,9 +196,55 @@ function App() {
         ))}
       </section>
       <footer>
-        <p>Ghany At-Tirmidzi, Univ. Muhammadiyah Bandung</p>
-        <p>GDSC ITB Task - Front-End Web 2 with ReactJS</p>
+        <p>Kelompok 36</p>
+        <p>GDSC ITB Task - Back-End Web </p>
       </footer>
+    </body>
+    </>
+  );
+
+  const renderLogin = () => (
+    <>
+    <body>
+        <div className='navbar'>
+            <a href="#" className="logo1">
+              <img src={logo}/>
+            </a>
+        </div>
+
+        <div className="sign-in">
+            <h1>Sign In</h1>
+
+            <form action="#" method="post">
+                <input type="text" name="email" placeholder="Email or phone number"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <input type="submit" value="Sign In" className="btn-sign-in" />
+            </form>
+        </div>
+    </body>
+    </>
+  );
+
+  const renderRegister = () => (
+    <>
+    <body>
+        <div className='navbar'>
+            <a href="#" className="logo1">
+              <img src={logo}/>
+            </a>
+        </div>
+
+        <div className="register">
+            <h1>Register</h1>
+
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Username"/>
+                <input type="text" name="email" placeholder="Email"/>
+                <input type="number" name="phone" placeholder="Phone number"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <input type="submit" value="Register" className="btn-register" />
+            </form>
+        </div>
     </body>
     </>
   );
@@ -214,14 +264,15 @@ function App() {
             <a href="#" onClick={() => navigateTo('wishlist')} className="wishlist">Wishlist</a>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <a href="#" onClick={() => navigateTo('login')}>Login</a>
           </li>
           <li>
-            <a href="#">TV-Series</a>
+            <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
         <div class="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
+          <i class="fas fa-search"></i>
         </div>
       </nav>
       <div className="overview-content">
@@ -242,7 +293,7 @@ function App() {
                   <p className="movie-desc">{movie.desc}</p>
                   <div className="btn">
                     <a className="btn-back" onClick={() => fromOverviewHandler(movie)}>Back</a>
-                    <a className="imdb-page" target="_blank" href={movie.link}>IMDB Page</a>
+                    <a className="imdb-page" target="_blank" href={movie.link} rel="noreferrer">IMDB Page</a>
                     <a className="add-to-wishlist" onClick={() => addToWishlist(movie)}>Add to Wishlist</a>
                   </div>
                 </div>
@@ -252,8 +303,8 @@ function App() {
         </div>
       </div>
       <footer>
-        <p>Ghany At-Tirmidzi, Univ. Muhammadiyah Bandung</p>
-        <p>GDSC ITB Task - Front-End Web 2 with ReactJS</p>
+        <p>Kelompok 36</p>
+        <p>GDSC ITB Task - Back-End Web </p>
       </footer>
     </body>
     </>
@@ -274,14 +325,15 @@ function App() {
             <a href="#" onClick={() => navigateTo('wishlist')} className="activated-wishlist">Wishlist</a>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <a href="#" onClick={() => navigateTo('login')}>Login</a>
           </li>
           <li>
-            <a href="#">TV-Series</a>
+            <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
         <div class="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
+          <i class="fas fa-search"></i>
         </div>
       </nav>
       <div className="wishlist">
@@ -302,8 +354,8 @@ function App() {
         </div>
       </div>
       <footer>
-        <p>Ghany At-Tirmidzi, Univ. Muhammadiyah Bandung</p>
-        <p>GDSC ITB Task - Front-End Web 2 with ReactJS</p>
+        <p>Kelompok 36</p>
+        <p>GDSC ITB Task - Back-End Web </p>
       </footer>
     </body>
     </>
@@ -314,6 +366,8 @@ function App() {
       {page === 'movies' && renderMovies()}
       {page === 'overview' && renderOverview()}
       {page === 'wishlist' && renderWishlist()}
+      {page === 'login' && renderLogin()}
+      {page === 'register' && renderRegister()}
     </div>
   );
 }
