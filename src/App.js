@@ -1,10 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import './App.css';
-import './components/styles/Login.css'
-import './components/styles/Register.css'
 import logo from './components/img/elogo.png'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 
 function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -161,21 +161,29 @@ function App() {
     <>
     <body>
       <nav>
-        <a href="#" className="logo">
+        <Link to='/' className='logo'>
           <img src={logo}/>
-        </a>
+        </Link>
         <ul className="menu">
           <li>
-            <a href="#" onClick={() => navigateTo('movies')} className="activated-home">Home</a>
+            <Link to='/'>
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('wishlist')} className="wishlist">Wishlist</a>
+            <Link to='/wishlist'>
+              Wishlist
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('login')}>Login</a>
+            <Link to='/login'>
+              Login
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('register')}>Register</a>
+            <Link to='/register'>
+              Register
+            </Link>
           </li>
         </ul>
         <div className="search">
@@ -190,7 +198,9 @@ function App() {
         {movies.map((movie, idx) => (
           <div className="movies-box">
             <div className="movies-img" key={idx}>
-              <img onClick={() => toOverviewHandler(movie)} className="img" src={movie.img}></img>
+              <Link to='/overview'>
+                <img onClick={() => toOverviewHandler(movie)} className="img" src={movie.img}></img>
+              </Link>
             </div>
           </div>
         ))}
@@ -203,71 +213,33 @@ function App() {
     </>
   );
 
-  const renderLogin = () => (
+  const renderOverview = () => {
     <>
     <body>
-        <div className='navbar'>
-            <a href="#" className="logo1">
-              <img src={logo}/>
-            </a>
-        </div>
-
-        <div className="sign-in">
-            <h1>Sign In</h1>
-
-            <form action="#" method="post">
-                <input type="text" name="email" placeholder="Email or phone number"/>
-                <input type="password" name="password" placeholder="Password"/>
-                <input type="submit" value="Sign In" className="btn-sign-in" />
-            </form>
-        </div>
-    </body>
-    </>
-  );
-
-  const renderRegister = () => (
-    <>
-    <body>
-        <div className='navbar'>
-            <a href="#" className="logo1">
-              <img src={logo}/>
-            </a>
-        </div>
-
-        <div className="register">
-            <h1>Register</h1>
-
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Username"/>
-                <input type="text" name="email" placeholder="Email"/>
-                <input type="number" name="phone" placeholder="Phone number"/>
-                <input type="password" name="password" placeholder="Password"/>
-                <input type="submit" value="Register" className="btn-register" />
-            </form>
-        </div>
-    </body>
-    </>
-  );
-
-  const renderOverview = () => (
-    <>
-    <body>
-      <nav>
-        <a href="#" className="logo">
+    <nav>
+        <Link to='/' className='logo'>
           <img src={logo}/>
-        </a>
+        </Link>
         <ul className="menu">
           <li>
-            <a href="#" onClick={() => navigateTo('movies')} className="activated-home">Home</a>
+            <Link to='/'>
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('wishlist')} className="wishlist">Wishlist</a>
+            <Link to='/wishlist'>
+              Wishlist
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('login')}>Login</a>
+            <Link to='/login'>
+              Login
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('register')}>Register</a>
+            <Link to='/register'>
+              Register
+            </Link>
           </li>
         </ul>
         <div className="search">
@@ -308,27 +280,35 @@ function App() {
       </footer>
     </body>
     </>
-  );
+};
 
   const renderWishlist = () => (
     <>
     <body>
       <nav>
-        <a href="#" className="logo">
+        <Link to='/' className='logo'>
           <img src={logo}/>
-        </a>
+        </Link>
         <ul className="menu">
           <li>
-            <a href="#" onClick={() => navigateTo('movies')} className="home">Home</a>
+            <Link to='/'>
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('wishlist')} className="activated-wishlist">Wishlist</a>
+            <Link to='/wishlist'>
+              Wishlist
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('login')}>Login</a>
+            <Link to='/login'>
+              Login
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => navigateTo('register')}>Register</a>
+            <Link to='/register'>
+              Register
+            </Link>
           </li>
         </ul>
         <div className="search">
@@ -342,7 +322,7 @@ function App() {
             <h5>Wishlist</h5>
           </div>
           <div className="cards">
-            {wishlist.map((movie) => (
+            {movies.map((movie) => (
               <div className="wishlist-card">
                 <img src={movie.img}></img>
                 <div className="btn-remove">
@@ -362,13 +342,17 @@ function App() {
   );
 
   return (
-    <div className="App">
-      {page === 'movies' && renderMovies()}
-      {page === 'overview' && renderOverview()}
-      {page === 'wishlist' && renderWishlist()}
-      {page === 'login' && renderLogin()}
-      {page === 'register' && renderRegister()}
-    </div>
+    <>
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={renderMovies()} />
+        <Route path='/wishlist' element={renderWishlist()} />
+        <Route path='/overview' element={renderOverview()} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 
