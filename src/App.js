@@ -178,9 +178,9 @@ function App() {
             <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
-        <div class="search">
+        <div className="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </div>
       </nav>
       <div className="movies-heading">
@@ -270,9 +270,9 @@ function App() {
             <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
-        <div class="search">
+        <div className="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </div>
       </nav>
       <div className="overview-content">
@@ -331,9 +331,9 @@ function App() {
             <a href="#" onClick={() => navigateTo('register')}>Register</a>
           </li>
         </ul>
-        <div class="search">
+        <div className="search">
           <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </div>
       </nav>
       <div className="wishlist">
