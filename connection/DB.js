@@ -1,10 +1,11 @@
 const sql = require('mssql')  
 const config = {  
-user: 'abcd',  
-password: 'abcd',  
-server: "localhost",  
-database: "profile"  
+    user: 'abcd',  
+    password: 'abcd',  
+    server: "localhost",  
+    database: "profile"  
 }  
+
 const poolPromise = new sql.ConnectionPool(config)  
 .connect()  
 .then(pool => {  
