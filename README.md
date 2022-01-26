@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+# GDSC-ITB-Backend-and-Database
+### Kelompok 36
+- Nicholas Sidharta - 597
+- Abdul Ghany At-Tirmidzi - 286
+- Dimas Saputra - 202
+- Reza Aminullah - 625
+
+### Details
+#### Project Screenshots
+
+#### Database
+
+#### Jobdesk
+=======
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +83,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+>>>>>>> 52f1ef3c1c431b0484c856f8e4412d6069c5e9c9

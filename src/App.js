@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import logo from './components/img/elogo.png'
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
@@ -6,9 +6,58 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 
+
+class NavBar extends React.Component {
+  render() {
+    return (
+      <nav>
+        <Link to='/' className='logo'>
+          <img src={logo}/>
+        </Link>
+        <ul className="menu">
+          <li>
+            <Link to='/'>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to='/wishlist'>
+              Wishlist
+            </Link>
+          </li>
+          <li>
+            <Link to='/login'>
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link to='/register'>
+              Register
+            </Link>
+          </li>
+        </ul>
+        <div className="search">
+          <input type="text" placeholder="Find Your Favorite Movies"/>
+          <i className="fas fa-search"></i>
+        </div>
+      </nav>
+    );
+  }
+}
+
+class Footer extends React.Component {
+  render() {
+    return (
+      <footer>
+        <p>Kelompok 36</p>
+        <p>GDSC ITB Task - Back-End Web </p>
+      </footer>
+    );
+  }
+}
 function App() {
   const [wishlist, setWishlist] = useState([]);
-  const [overview, setOverview] = useState([]);
+  const [overview, setOverview] = useState(0);
   const [page, setPage] = useState('movies');
   const [movies] = useState (
     [
@@ -136,7 +185,7 @@ function App() {
   );
 
   const addToWishlist = (movie) => {
-    setWishlist([...wishlist, {...movie}])
+    setWishlist([...wishlist, movie]);
   };
 
   const removeFromWishlist = (movieRemove) => {
@@ -144,13 +193,13 @@ function App() {
   };
 
   const toOverviewHandler = (movie) => {
-    setOverview([...overview, {...movie}]);
+    setOverview(movie);
     setPage('overview');
   }
 
   const fromOverviewHandler = (overviewRemove) => {
-    setOverview(overview.filter((movie) => movie !== overviewRemove));
     navigateTo('movies');
+    window.history.back()
   }
 
   const navigateTo = (nextPage) => {
@@ -160,37 +209,10 @@ function App() {
   const renderMovies = () => (
     <>
     <body>
-      <nav>
-        <Link to='/' className='logo'>
-          <img src={logo}/>
-        </Link>
-        <ul className="menu">
-          <li>
-            <Link to='/'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to='/wishlist'>
-              Wishlist
-            </Link>
-          </li>
-          <li>
-            <Link to='/login'>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to='/register'>
-              Register
-            </Link>
-          </li>
-        </ul>
-        <div className="search">
-          <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i className="fas fa-search"></i>
-        </div>
-      </nav>
+      <NavBar />
+      <div className='welcome-content'>
+        <h2>Hello and Welcome, User</h2>
+      </div>
       <div className="movies-heading">
         <h2>Movies</h2>
       </div>
@@ -199,144 +221,73 @@ function App() {
           <div className="movies-box">
             <div className="movies-img" key={idx}>
               <Link to='/overview'>
-                <img onClick={() => toOverviewHandler(movie)} className="img" src={movie.img}></img>
+                <img onClick={() => toOverviewHandler(idx)} className="img" src={movie.img}></img>
               </Link>
             </div>
           </div>
         ))}
       </section>
-      <footer>
-        <p>Kelompok 36</p>
-        <p>GDSC ITB Task - Back-End Web </p>
-      </footer>
+      <Footer />
     </body>
     </>
   );
 
-  const renderOverview = () => {
-    <>
+  function RenderOverview() {
+    return (
     <body>
-    <nav>
-        <Link to='/' className='logo'>
-          <img src={logo}/>
-        </Link>
-        <ul className="menu">
-          <li>
-            <Link to='/'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to='/wishlist'>
-              Wishlist
-            </Link>
-          </li>
-          <li>
-            <Link to='/login'>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to='/register'>
-              Register
-            </Link>
-          </li>
-        </ul>
-        <div className="search">
-          <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i className="fas fa-search"></i>
-        </div>
-      </nav>
+    <NavBar onClick={() => fromOverviewHandler(overview)}/>
       <div className="overview-content">
         <div className="overview-header">
           <h5>Overview</h5>
         </div>
         <div className="overview-info">
-          {overview.map((movie) => (
             <div className="overview-container">
               <div className="overview-movie">
-                <img className="overview-poster" src={movie.img}></img>
-                
+                <img className="overview-poster" src={movies[overview].img}></img>
                 <div className="about-movie">
-                  <h3>{movie.name}</h3>
-                  <p className="genre">{movie.genre}</p>
-                  <p className="rating-num">Rating: {movie.rating}/10</p>
+                  <h3>{movies[overview].name}</h3>
+                  <p className="genre">{movies[overview].genre}</p>
+                  <p className="rating-num">Rating: {movies[overview].rating}/10</p>
                   <h4>Description:</h4>
-                  <p className="movie-desc">{movie.desc}</p>
+                  <p className="movie-desc">{movies[overview].desc}</p>
                   <div className="btn">
-                    <a className="btn-back" onClick={() => fromOverviewHandler(movie)}>Back</a>
-                    <a className="imdb-page" target="_blank" href={movie.link} rel="noreferrer">IMDB Page</a>
-                    <a className="add-to-wishlist" onClick={() => addToWishlist(movie)}>Add to Wishlist</a>
+                    <a className="btn-back" onClick={() => fromOverviewHandler()}>Back</a>
+                    <a className="imdb-page" target="_blank" href={movies[overview].link} rel="noreferrer">IMDB Page</a>
+                    <a className="add-to-wishlist" onClick={() => addToWishlist(overview)}>Add to Wishlist</a>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
         </div>
       </div>
-      <footer>
-        <p>Kelompok 36</p>
-        <p>GDSC ITB Task - Back-End Web </p>
-      </footer>
+      <Footer />
     </body>
-    </>
-};
+    )
+  }
 
   const renderWishlist = () => (
     <>
     <body>
-      <nav>
-        <Link to='/' className='logo'>
-          <img src={logo}/>
-        </Link>
-        <ul className="menu">
-          <li>
-            <Link to='/'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to='/wishlist'>
-              Wishlist
-            </Link>
-          </li>
-          <li>
-            <Link to='/login'>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to='/register'>
-              Register
-            </Link>
-          </li>
-        </ul>
-        <div className="search">
-          <input type="text" placeholder="Find Your Favorite Movies"/>
-          <i className="fas fa-search"></i>
-        </div>
-      </nav>
+      <NavBar />
       <div className="wishlist">
         <div className="wishlist-content">
           <div className="wishlist-header">
-            <h5>Wishlist</h5>
+            <h5>User's Wishlist</h5>
           </div>
           <div className="cards">
-            {movies.map((movie) => (
+            {wishlist.length == 0 && <div className="empty-wishlist">You have no wishlist</div>}
+            {wishlist.map((idx) => (
               <div className="wishlist-card">
-                <img src={movie.img}></img>
+                <img src={movies[idx].img}></img>
                 <div className="btn-remove">
-                  <p onClick={() => removeFromWishlist(movie)}>Remove</p>
+                  <p onClick={() => removeFromWishlist(idx)}>Remove</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <footer>
-        <p>Kelompok 36</p>
-        <p>GDSC ITB Task - Back-End Web </p>
-      </footer>
+      <Footer />
     </body>
     </>
   );
@@ -349,7 +300,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/' element={renderMovies()} />
         <Route path='/wishlist' element={renderWishlist()} />
-        <Route path='/overview' element={renderOverview()} />
+        <Route path='/overview' element={<RenderOverview />} />
       </Routes>
     </Router>
     </>

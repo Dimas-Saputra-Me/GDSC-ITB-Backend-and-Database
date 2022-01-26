@@ -4,9 +4,6 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Poppins', sans-serif;
-    background-image: url(../img/bg-l.png);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .navbar {

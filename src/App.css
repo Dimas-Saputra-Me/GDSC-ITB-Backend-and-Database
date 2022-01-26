@@ -4,7 +4,10 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: 'Poppins', serif;
-  background-color: #131313;
+  background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(24, 24, 24, 0.90)), url(./components/img/bg-l.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 *{
@@ -97,7 +100,7 @@ nav ul li .activated-wishlist {
 
 
 /* Movie Content */
-.movies-heading h2 {
+.movies-heading h2{
   margin-top: 85px;
   padding: 5px 20px;
   border: 1px solid(0,0,0,0.06);
@@ -109,10 +112,30 @@ nav ul li .activated-wishlist {
 
 }
 
+.welcome-content{
+  display: flex;
+  background-color: #242424;
+}
+
+.welcome-content h2 {
+  margin-top: 85px;
+  padding: 5px 20px;
+  border: 1px solid(0,0,0,0.06);
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-left: 5%;
+}
+
+.moview-wrapper {
+  min-height: 100vh
+}
+
 .movies-heading {
   padding-left: 80px;
   display: flex;
-  margin: 0px 2%;
   background-color: #131313;
 }
 
@@ -162,9 +185,9 @@ nav ul li .activated-wishlist {
 }
 
 .overview-content {
-  background-color: #131313;
+  background-color: rgba(15, 15, 15, 0.897);
   margin: 0.5px auto; 
-  padding: 20px;
+  padding: 20px 10%;
 }
 
 .overview-poster {
@@ -278,32 +301,31 @@ nav ul li .activated-wishlist {
   background-color: #fefefe;
   margin: 95px;
   padding: 0;
-  border: 1px solid #888;
   width: 80%;
+  border-radius: 10px;
 }
 
 .wishlist-header {
-  padding: 1em;  
+  padding: 10px;  
   background-color: black;
   color: white;
-  font-size: large;
+  font-size: 25px;
   text-align: center;
 }
 
 .cards {
   padding: 2px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  flex-flow: row wrap;
   margin: 15px;
 }
 
 .wishlist-card {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 35%;
-  margin: 50px;
+  width: 200px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -320,13 +342,14 @@ nav ul li .activated-wishlist {
 .btn-remove p {
   font-size: 0.9rem;
   background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #921d1d;
+  color: #921d1d;
+  border: 1px solid #921d1d;
   border-color: #921d1d;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 2px;
   max-height: 180px;
   cursor: pointer;
+  margin: 10px;
 }
 
 .btn-remove p:hover {
@@ -334,16 +357,25 @@ nav ul li .activated-wishlist {
   color: white;
 }
 
+.empty-wishlist{
+  color:grey;
+  text-align: center;
+  padding: 0 10px 10px 0;
+}
 /* Footer */
 footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid rgba(179, 179, 179, 0.1);
+  position: sticky;
+  bottom: 0;
+  background-color: #0c0c0c;
+  padding: 10px
 }
 
 footer p {
   color: #d6d6d6;
-  margin: 20px 0px;
   font-size: 0.9rem;
+  text-align: center;
 }
