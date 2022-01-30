@@ -36,14 +36,8 @@ app.use('/api', routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
 
-    res.status(200).json({
-        status: 'success',
-        data: {
-            name: 'gdsc-itb-backend-and-database',
-            version: '1.0.0'
-        }
-    });
+    res.send({ express: 'Hello From Express' });
 
 });
