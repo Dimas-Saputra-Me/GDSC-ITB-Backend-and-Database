@@ -10,20 +10,21 @@
 Link Here
 
 ### Project Screenshots
-![image](./screenshot/login.jpg "login")
+
 #### Login Page
+![image](./screenshot/login.jpg "login")
 
-![image](./screenshot/register.jpg "register")
 #### Register Page
+![image](./screenshot/register.jpg "register")
 
-![image](./screenshot/movies.jpg "movies")
 #### Movie Page
+![image](./screenshot/movies.jpg "movies")
 
-![image](./screenshot/details.jpg "details")
 #### Movie Detail Page
+![image](./screenshot/details.jpg "details")
 
-![image](./screenshot/wishlist.jpg "wishlist")
 #### Wishlist Page
+![image](./screenshot/wishlist.jpg "wishlist")
 
 ### Database
 TODO
