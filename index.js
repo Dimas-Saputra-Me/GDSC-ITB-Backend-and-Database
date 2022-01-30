@@ -1,17 +1,38 @@
-var express = require('express');  
-var bodyParser = require("body-parser");  
-var app = express();  
-app.use(function (req, res, next) {  
-    res.header("Access-Control-Allow-Origin", "*");  
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");  
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');  
-    next();  
-});  
+const express = require('express');
+const mongoose = require('mongoose');
+mongoose.pluralize(null);
+const morgan = require('morgan');
+require('dotenv').config();
 
-app.use(bodyParser.urlencoded({ extended: true }));  
-const ProfileData = require('./controller/profile')  
+const routes = require('./backend/api');
 
-app.use('/', ProfileData)  
-app.listen(5000, function () {  
-    console.log('Server is running..');  
+const app = express();
+const PORT = process.env.PORT || 8080; // Step 1
+
+
+//mongodb
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/gdsc-itb', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected!!!!');
+});
+
+//ata parse
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+//production code
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'));
+// }
+
+//API
+app.use(morgan('tiny'));
+app.use('/api', routes);
+
+
+app.listen(PORT, console.log(`Server is starting at ${PORT}`));
+
