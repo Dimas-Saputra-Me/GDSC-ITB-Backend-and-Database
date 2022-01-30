@@ -11,15 +11,15 @@ Link Here
 
 #### Project Screenshots
 {<img src='./screenshot/login.jpg' alt='login'>}
-{<h3>Login Page</h3>}
+##### Login Page
 {<img src='./screenshot/register.jpg' alt='register'>}
-{<h3>Register Page</h3>}
+##### Register Page
 {<img src='./screenshot/movies.jpg' alt='movies'>}
-{<h3>Movie Page</h3>}
+##### Movie Page
 {<img src='./screenshot/details.jpg' alt='details'>}
-{<h3>Movie Detail Page</h3>}
+##### Movie Detail Page
 {<img src='./screenshot/wishlist.jpg' alt='wishlist'>}
-{<h3>Wishlist Page</h3>}
+##### Wishlist Page
 
 #### Database
 TODO
