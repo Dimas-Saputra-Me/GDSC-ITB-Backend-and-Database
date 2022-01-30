@@ -58,3 +58,8 @@ input {
     color: #ffffff;
     cursor: pointer;
 }
+
+.sign-in h5{
+    color: #fff;
+    text-align: center;
+}

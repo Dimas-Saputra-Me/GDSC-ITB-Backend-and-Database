@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Register.css';
 import logo from '../img/elogo.png'
+import { Link } from 'react-router-dom';
 
 function Register() {
   return (
@@ -22,6 +23,8 @@ function Register() {
                     <input type="password" name="password" placeholder="Password"/>
                     <input type="submit" value="Register" className="btn-register" />
                 </form>
+
+                <h5>Already have an account? <Link to='/login'>Login</Link></h5>
             </div>
         </body>
     </>
