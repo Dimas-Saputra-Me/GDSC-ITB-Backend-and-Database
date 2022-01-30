@@ -38,6 +38,6 @@ app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
 app.get('/', (req, res) => {
 
-    res.send({ express: 'Hello From Express' });
+    app.use('/api', routes);
 
 });
