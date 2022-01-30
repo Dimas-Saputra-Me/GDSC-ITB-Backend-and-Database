@@ -8,8 +8,6 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import ProtectedRoutes from './protectedRoutes';
 
-//TODO: Push to github > host to heroku
-
 class NavBar extends React.Component {
   render() {
     return (
