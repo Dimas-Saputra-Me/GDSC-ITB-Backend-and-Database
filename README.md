@@ -10,15 +10,19 @@
 Link Here
 
 ### Project Screenshots
-<img src='./screenshot/login.jpg' alt='login'>
+![image](./screenshot/login.jpg "login")
 #### Login Page
-<img src='./screenshot/register.jpg' alt='register'>
+
+![image](./screenshot/register.jpg "register")
 #### Register Page
-<img src='./screenshot/movies.jpg' alt='movies'>
+
+![image](./screenshot/movies.jpg "movies")
 #### Movie Page
-<img src='./screenshot/details.jpg' alt='details'>
+
+![image](./screenshot/details.jpg "details")
 #### Movie Detail Page
-<img src='./screenshot/wishlist.jpg' alt='wishlist'>
+
+![image](./screenshot/wishlist.jpg "wishlist")
 #### Wishlist Page
 
 ### Database
