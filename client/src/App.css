@@ -67,7 +67,7 @@ nav .menu li a{
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  padding: 0px 20px;
+  padding: 0px 16px 0px 0px;
 }
 
 .search input {
@@ -100,26 +100,14 @@ nav ul li .activated-wishlist {
 
 
 /* Movie Content */
-.movies-heading h2{
-  margin-top: 85px;
-  padding: 5px 20px;
-  border: 1px solid(0,0,0,0.06);
-  font-weight: 500;
-  font-size: 1.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ffffff;
-
-}
-
 .welcome-content{
   display: flex;
-  background-color: #242424;
+  background-color: #131313;
 }
 
 .welcome-content h2 {
-  margin-top: 85px;
-  padding: 5px 20px;
+  padding-left: 18px;
+  margin-top: 90px;
   border: 1px solid(0,0,0,0.06);
   font-weight: 500;
   font-size: 1.7rem;
@@ -139,6 +127,16 @@ nav ul li .activated-wishlist {
   background-color: #131313;
 }
 
+.movies-heading h2{
+  padding: 6px 28px;
+  border: 1px solid(0,0,0,0.06);
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
 .movies-box {
   width: 200px;
   display: flex;
@@ -147,7 +145,7 @@ nav ul li .activated-wishlist {
   flex-direction: column;
   box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
   margin: 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -193,7 +191,7 @@ nav ul li .activated-wishlist {
 .overview-poster {
   width: 25%;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 4px;
   justify-self: center;
   vertical-align: middle;
   grid-column: 1;
@@ -229,9 +227,10 @@ nav ul li .activated-wishlist {
   height: 40px;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #ececec;
   background-color: #131313;
   border: 2px solid #ececec;
+  border-radius: 4px;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -250,9 +249,10 @@ nav ul li .activated-wishlist {
   height: 40px;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #ececec;
   background-color: #131313;
   border: 2px solid #ececec;
+  border-radius: 4px;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -271,9 +271,10 @@ nav ul li .activated-wishlist {
   height: 40px;
   border: none;
   outline: none;
-  color: #131313;
-  background-color: #ececec;
-  border: 2px solid #ececec;
+  color: #ececec;
+  background-color: #e50914;
+  border: 2px solid #e50914;
+  border-radius: 4px;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -283,7 +284,7 @@ nav ul li .activated-wishlist {
 
 .btn .add-to-wishlist:hover {
   background-color: #131313;
-  border-color: #131313;
+  border-color: #e50914;
   color: #ececec;
   cursor: pointer;
 }
@@ -298,16 +299,16 @@ nav ul li .activated-wishlist {
 
 .wishlist-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #131313;
   margin: 95px;
   padding: 0;
   width: 80%;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .wishlist-header {
   padding: 10px;  
-  background-color: black;
+  background-color: #020202;
   color: white;
   font-size: 25px;
   text-align: center;
@@ -322,15 +323,16 @@ nav ul li .activated-wishlist {
 }
 
 .wishlist-card {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px 0 #070707;
+  background-color: #070707;
   width: 200px;
   margin: 20px;
   text-align: center;
 }
 
 .wishlist-card img {
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 4px;
   width: 95%;
   margin-top: 8px;
 }
@@ -341,11 +343,10 @@ nav ul li .activated-wishlist {
 
 .btn-remove p {
   font-size: 0.9rem;
-  background-color: #ffffff;
-  color: #921d1d;
-  border: 1px solid #921d1d;
-  border-color: #921d1d;
-  border-radius: 20px;
+  background-color: #070707;
+  color: #ececec;
+  border: 1px solid #e50914;
+  border-radius: 4px;
   padding: 2px;
   max-height: 180px;
   cursor: pointer;
@@ -353,12 +354,12 @@ nav ul li .activated-wishlist {
 }
 
 .btn-remove p:hover {
-  background-color: #921d1d;
-  color: white;
+  background-color: #e50914;
+  color: #ececec;
 }
 
 .empty-wishlist{
-  color:grey;
+  color:#ececec;
   text-align: center;
   padding: 0 10px 10px 0;
 }
@@ -368,7 +369,6 @@ footer {
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid rgba(179, 179, 179, 0.1);
-  position: sticky;
   bottom: 0;
   background-color: #0c0c0c;
   padding: 10px
