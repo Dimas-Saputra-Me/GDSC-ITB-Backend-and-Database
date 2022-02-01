@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "GDSC ITB Backend and Database Movie App",
   "main": "index.js",
+  "engine": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
   "scripts": {
     "start": "node index.js",
     "client": "cd client && npm start",
