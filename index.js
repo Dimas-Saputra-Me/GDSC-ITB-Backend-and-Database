@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.pluralize(null);
+const path = require('path');
 const morgan = require('morgan');
 require('dotenv').config();
 const path = require('path');
