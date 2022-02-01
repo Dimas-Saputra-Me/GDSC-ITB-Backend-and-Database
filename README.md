@@ -7,7 +7,7 @@
 
 ## Details
 ### Webpage
-Link Here
+Open website on heroku [here](https://gdsc-itb-backend-and-database.herokuapp.com/)
 
 ### Project Screenshots
 
