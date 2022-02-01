@@ -27,7 +27,10 @@ Open website on heroku [here](https://gdsc-itb-backend-and-database.herokuapp.co
 <img src="https://user-images.githubusercontent.com/73926625/151905163-88078f02-7ea7-4027-b211-59ad4a731007.png" alt="Wishlist Page" width="50%" height="50%"/>
 
 ### Database
-TODO
+<img src="https://user-images.githubusercontent.com/62497214/151981091-2e40edfc-d584-41ee-8c5c-63c52b812277.png" alt="Database Schema" width="50%" height="50%"/>
+<p align="justify">
+Project ini menggunakan database no-SQL lebih tepatnya yaitu database mongodb. Gambar di atas menunjukkan schema yang dipakai pada project ini yaitu schema User dan schema Movie. Schema User dan Schema Movie memiliki hubungan entitas many-to-many ditunjukkan oleh hubungan key Wishlist pada schema User dengan primary key MovieID pada schema Movie.
+</p>
 
 ### Jobdesk
 TODO
