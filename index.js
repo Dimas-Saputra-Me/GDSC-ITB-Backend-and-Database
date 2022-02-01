@@ -20,18 +20,21 @@ mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected!!!!');
 });
 
-//ata parse
+//data parse
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-//production code
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('client/build'));
-// }
 
 //API
 app.use(morgan('tiny'));
 app.use('/api', routes);
 
+// production code 
+if (process.env.NODE_ENV == "production") {
+    app.use(express.static(path.join(__dirname, "/client/build")));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+}
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
