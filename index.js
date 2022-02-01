@@ -4,7 +4,6 @@ mongoose.pluralize(null);
 const path = require('path');
 const morgan = require('morgan');
 require('dotenv').config();
-const path = require('path');
 
 const routes = require('./backend/api');
 
