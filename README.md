@@ -41,7 +41,6 @@ Project ini menggunakan database no-SQL lebih tepatnya yaitu database mongodb. G
 - Abdul Ghany At-Tirmidzi - 286 (Front End)
 1. UI Design
 2. React Page Template
-3. Search Functionality
 
 - Dimas Saputra - 202 (Back End)
 1. Database Designer
